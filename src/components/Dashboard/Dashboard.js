@@ -37,8 +37,8 @@ class Dashboard extends Component {
         let dash = this.state.houses.map(house => {
 
             return (
-                <div>
-                    <House />
+                <div key={house.id}>
+                    <House houseDetails={house} />
                 </div>
             )
 
