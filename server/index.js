@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const massive = require('massive');
+const cors = require('cors');
 require('dotenv').config();
 
 // Require controller
@@ -9,6 +10,7 @@ const controller = require("./controller.js");
 
 // Have express create app
 const app = express();
+app.use(cors())
 
 // Tell express app to use bodyParser.json() for API endpoints
 app.use(bodyParser.json())
@@ -19,7 +21,7 @@ massive(process.env.CONNECTION_STRING).then(dbInstance => {
 }).catch(err => console.log(err));
 
 // Create endpoints
-// app.get("/api/inventory", controller.getAll)
+app.get("/api/houses", controller.getAll)
 // app.get("/api/inventory/:productID", controller.getOne)
 // app.delete("/api/inventory/:productID", controller.deleteProduct)
 // app.put("/api/inventory/:productID", controller.editProduct)

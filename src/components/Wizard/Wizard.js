@@ -29,14 +29,33 @@ class Wizard extends Component {
         return (
             <div>
 
-                <input placeholder="Property Name" onChange={event => this.inputBoxChange(event, "Property Name")} />
-                <input placeholder="Address" onChange={event => this.inputBoxChange(event, "Address")} />
-                <input placeholder="City" onChange={event => this.inputBoxChange(event, "City")} />
-                <input placeholder="State" onChange={event => this.inputBoxChange(event, "State")} />
-                <input placeholder="Zip Code" onChange={event => this.inputBoxChange(event, "Zip Code")} />
+                <div>
+                    Property Name:
+                    <input placeholder="Property Name" onChange={event => this.inputBoxChange(event, "Property Name")} />
+                </div>
+
+                <div>
+                    Address:
+                    <input placeholder="Address" onChange={event => this.inputBoxChange(event, "Address")} />
+                </div>
+
+                <div>
+                    City:
+                    <input placeholder="City" onChange={event => this.inputBoxChange(event, "City")} />
+                </div>
+
+                <div>
+                    State:
+                    <input placeholder="State" onChange={event => this.inputBoxChange(event, "State")} />
+                </div>
+
+                <div>
+                    Zip Code:
+                    <input placeholder="Zip Code" onChange={event => this.inputBoxChange(event, "Zip Code")} />
+                </div>
 
                 <Link to="/">
-                    <div><button>Cancel</button></div>
+                    <button>Cancel</button>
                 </Link>
 
             </div>
