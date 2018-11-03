@@ -23,9 +23,9 @@ massive(process.env.CONNECTION_STRING).then(dbInstance => {
 // Create endpoints
 app.get("/api/houses", controller.getAll)
 // app.get("/api/inventory/:productID", controller.getOne)
-// app.delete("/api/inventory/:productID", controller.deleteProduct)
+app.delete("/api/houses/:houseID", controller.deleteHouse)
 // app.put("/api/inventory/:productID", controller.editProduct)
-// app.post("/api/product", controller.addProduct)
+app.post("/api/houses", controller.addHouse)
 
 
 // Tell the app to start listening on port 3005

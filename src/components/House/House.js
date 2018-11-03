@@ -8,7 +8,7 @@ function House(props) {
             <div>CITY: {props.houseDetails.city}</div>
             <div>STATE: {props.houseDetails.state}</div>
             <div>ZIP CODE: {props.houseDetails.zip}</div>
-            <button>DELETE PROPERTY</button>
+            <button onClick={() => { props.deleteFunction(props.houseDetails.id) }}>DELETE PROPERTY</button>
         </div>
     )
 }

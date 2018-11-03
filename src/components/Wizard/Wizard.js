@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+const BASE_URL = 'http://localhost:3005'
 
 class Wizard extends Component {
 
@@ -22,6 +25,22 @@ class Wizard extends Component {
         const input_string = event.target.value;
 
         this.setState({ [type]: input_string })
+
+    }
+
+    addToServer = () => {
+
+        let data = {
+            name: this.state["Property Name"],
+            address: this.state["Address"],
+            city: this.state["City"],
+            state: this.state["State"],
+            zipcode: this.state["Zip Code"]
+        }
+
+        axios.post(`${BASE_URL}/api/houses`, data).then(response => {
+            this.props.history.push('/')
+        })
 
     }
 
@@ -53,6 +72,8 @@ class Wizard extends Component {
                     Zip Code:
                     <input placeholder="Zip Code" onChange={event => this.inputBoxChange(event, "Zip Code")} />
                 </div>
+
+                <button onClick={this.addToServer}>COMPLETE</button>
 
                 <Link to="/">
                     <button>Cancel</button>

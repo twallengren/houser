@@ -32,13 +32,21 @@ class Dashboard extends Component {
 
     }
 
+    deleteHouse = id => {
+
+        axios.delete(`${BASE_URL}/api/houses/${id}`).then(response => {
+            this.getAllHouses()
+        })
+
+    }
+
     render() {
 
         let dash = this.state.houses.map(house => {
 
             return (
                 <div key={house.id}>
-                    <House houseDetails={house} />
+                    <House houseDetails={house} deleteFunction={this.deleteHouse} />
                 </div>
             )
 
