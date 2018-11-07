@@ -28,11 +28,11 @@ module.exports = {
 
         const dbInstance = req.app.get('db');
 
-        const { name, address, city, state, zipcode } = req.body;
+        const { name, address, city, state, zipcode, img, mortgage, rent } = req.body;
 
-        console.log([name, address, city, state, zipcode])
+        console.log(name, address, city, state, zipcode, img, mortgage, rent)
 
-        dbInstance.add_house([name, address, city, state, zipcode]).then(() => res.sendStatus(200)).catch(err => {
+        dbInstance.add_house([name, address, city, state, zipcode, img, mortgage, rent]).then(() => res.sendStatus(200)).catch(err => {
             res.status(500).send({ errorMessage: "Oops! Something went wrong. Our engineers have been informed!" });
             console.log(err)
         });

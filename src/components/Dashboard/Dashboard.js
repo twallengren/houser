@@ -59,7 +59,7 @@ class Dashboard extends Component {
 
                 {dash}
 
-                <Link to="/wizard">
+                <Link to="/wizard/stepone">
                     <button>Add New Property</button>
                 </Link>
 
